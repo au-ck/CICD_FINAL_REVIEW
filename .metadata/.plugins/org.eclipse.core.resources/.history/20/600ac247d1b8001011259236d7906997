@@ -1,0 +1,26 @@
+// src/main/java/com/klef/service/ProductService.java
+package com.klef.service;
+
+import com.klef.entity.Product;
+import com.klef.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class ProductService {
+
+    @Autowired private ProductRepository repo;
+
+    public Product addProduct(Product product) {
+        return repo.save(product);
+    }
+
+    public List<Product> getByFarmer(Long farmerId) {
+        return repo.findByFarmerId(farmerId);
+    }
+
+    public List<Product> getApproved() {
+        return repo.findByStatus(Product.Status.APPROVED);
+    }
+}

@@ -1,0 +1,5 @@
+package com.klef.entity;
+
+public class Product {
+
+}
